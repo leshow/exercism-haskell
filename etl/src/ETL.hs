@@ -10,5 +10,4 @@ transform = M.fromList . concatMap (\(g, xs) ->
     let
         list = zip (fmap toLower xs) (repeat g)
     in
-        list
-    ) . M.toList
+        list) . M.toList
