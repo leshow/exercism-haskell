@@ -5,17 +5,17 @@ import           Data.Map      (Map)
 import qualified Data.Map      as M
 
 nucleotideCounts :: String -> Either String (Map Char Integer)
-nucleotideCounts xs = foldM (\m x -> do
+nucleotideCounts = foldM (\m x -> do
             x' <- isValid x
             let n = M.insertWith (+) x' 1 m
-            return $ n) M.empty xs
+            return n) M.empty
     where
         isValid x = case x of
             'A' -> Right x
             'T' -> Right x
             'G' -> Right x
             'C' -> Right x
-            _   -> Left $ "Error"
+            _   -> Left "Error"
 
 
 -- with monadT
