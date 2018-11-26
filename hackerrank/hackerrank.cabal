@@ -25,7 +25,6 @@ executable hackerrank
                      , text
                      , mtl                     
                      , random
-                     , lens
                      , unagi-chan
                      , stm
   ghc-options:         -O2 -threaded "-with-rtsopts=-N" -Wall -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints

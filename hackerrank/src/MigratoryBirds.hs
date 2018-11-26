@@ -11,9 +11,24 @@ For example, assume your bird sightings are of types arr = {1,1,2,2,3}
 
 import qualified Data.IntMap                        as Map
 import           Data.IntMap                         ( IntMap )
-import           Data.Lens
+-- import           Data.Lens
 import           Data.Foldable
+import           Data.Function
+-- migratoryBirds :: [Int] -> Maybe Int
+-- migratoryBirds arr = maximumOf traverse (intmap arr)
+--     where intmap = foldl' (\acc c -> Map.insertWith @Int (+) c 1 acc) Map.empty
 
-migratoryBirds :: [Int] -> Maybe Int
-migratoryBirds arr = maximumOf traverse (intmap arr)
+migratoryBirds :: [Int] -> Int
+migratoryBirds arr =
+    intmap arr
+        & Map.toList
+        & foldl'
+              (\(acck, accv) (k, v) -> case compare accv v of
+                  GT -> (acck, accv)
+                  EQ -> (k, v)
+                  LT -> (k, v)
+              )
+              (0, 0)
+        & fst
     where intmap = foldl' (\acc c -> Map.insertWith @Int (+) c 1 acc) Map.empty
+
