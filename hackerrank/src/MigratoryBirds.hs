@@ -32,8 +32,3 @@ migratoryBirds arr =
         & fst
     where intmap = foldl' (\acc c -> Map.insertWith @Int (+) c 1 acc) Map.empty
 
-
-series :: [Int]
-series = go 0
-    where
-        go n = (1/n!) : go n
