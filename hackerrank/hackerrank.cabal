@@ -24,6 +24,7 @@ executable hackerrank
                      , containers
                      , text
                      , mtl                     
+                     , transformers
                      , random
                      , unagi-chan
                      , stm
