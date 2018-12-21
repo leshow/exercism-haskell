@@ -4,9 +4,7 @@ import           Data.Map                            ( Map )
 import qualified Data.Map                           as Map
 import           Data.List                           ( sortBy )
 import           Data.Char                           ( isLower )
-import           Debug.Trace                         ( traceShow )
 import           Data.Function                       ( (&) )
-import           Data.Maybe                          ( catMaybes )
 
 mix :: String -> String -> String
 mix s1 s2 = go ll1 ll2
