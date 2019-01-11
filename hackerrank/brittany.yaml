@@ -8,6 +8,7 @@ conf_forward:
     - -XDerivingStrategies
     - -XGeneralizedNewtypeDeriving
     - -XOverloadedStrings
+    - -XOverloadedLabels
     - -XExistentialQuantification
     - -XStandaloneDeriving
     - -XScopedTypeVariables

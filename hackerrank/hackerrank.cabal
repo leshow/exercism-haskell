@@ -38,6 +38,7 @@ executable hackerrank
                              , DerivingStrategies
                              , GeneralizedNewtypeDeriving
                              , OverloadedStrings
+                             , OverloadedLabels
                              , ExistentialQuantification
                              , StandaloneDeriving
                              , ScopedTypeVariables
