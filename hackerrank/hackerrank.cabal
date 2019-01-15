@@ -29,7 +29,7 @@ executable hackerrank
                      , unagi-chan
                      , stm
                      , parallel
-  ghc-options:         -O2 -threaded "-with-rtsopts=-N" -Wall -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
+  ghc-options:         -O2 -threaded "-with-rtsopts=-N" -Wall -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -frefinement-level-hole-fits=1
   default-extensions:          DeriveFoldable
                              , DeriveFunctor
                              , DeriveGeneric
