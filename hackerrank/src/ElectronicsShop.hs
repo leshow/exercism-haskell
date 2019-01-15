@@ -25,8 +25,8 @@ keyboard and the 3rd USB drive for a total cost of 8 + 1 = 9.
 -}
 
 getMoney :: [Int] -> [Int] -> Int -> [Int]
-getMoney keyboards drives b =
-    [ val | kb <- keyboards, drv <- drives, let val = kb + drv, val <= b ]
+getMoney keyboards drives b = filter (<= b) $ liftM2 (+) keyboards drives
+    -- [ val | kb <- keyboards, drv <- drives, let val = kb + drv, val <= b ]
 
 getMoneySpent :: [Int] -> [Int] -> Int -> Int
 getMoneySpent keyboards drives b = fromMaybe (-1) mostExp
