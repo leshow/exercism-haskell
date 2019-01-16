@@ -1,0 +1,60 @@
+name: pangram
+version: 1.4.1.10
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: Pangram
+  source-dirs: src
+  ghc-options:
+    - -Wall
+  dependencies:
+    - containers # List here the packages you
+  # - bar       # want to use in your solution.
+  default-extensions:
+    - DeriveFoldable
+    - DeriveFunctor
+    - DeriveGeneric
+    - DeriveTraversable
+    - DeriveLift
+    - DerivingStrategies
+    - GeneralizedNewtypeDeriving
+    - OverloadedLabels
+    - OverloadedStrings
+    - ExistentialQuantification
+    - StandaloneDeriving
+    - ScopedTypeVariables
+    - UnicodeSyntax
+    - BinaryLiterals
+    - NumDecimals
+    - ConstraintKinds
+    - RankNTypes
+    - TypeFamilies
+    - TypeInType
+    - DataKinds
+    - KindSignatures
+    - TypeOperators
+    - TypeApplications
+    - GADTs
+    - NamedFieldPuns
+    - InstanceSigs
+    - MultiParamTypeClasses
+    - FunctionalDependencies
+    - ConstrainedClassMethods
+    - InstanceSigs
+    - FlexibleInstances
+    - FlexibleContexts
+    - BangPatterns
+    - ViewPatterns
+    - PatternGuards
+    - MultiWayIf
+    - EmptyCase
+    - LambdaCase
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - pangram
+      - hspec

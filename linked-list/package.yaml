@@ -1,0 +1,60 @@
+name: linked-list
+version: 0.1.0.3
+
+dependencies:
+  - base
+default-extensions:
+  - DeriveFoldable
+  - DeriveFunctor
+  - DeriveGeneric
+  - DeriveTraversable
+  - DeriveLift
+  - DerivingStrategies
+  - GeneralizedNewtypeDeriving
+  - OverloadedLabels
+  - OverloadedStrings
+  - ExistentialQuantification
+  - StandaloneDeriving
+  - ScopedTypeVariables
+  - UnicodeSyntax
+  - BinaryLiterals
+  - NumDecimals
+  - ConstraintKinds
+  - RankNTypes
+  - TypeFamilies
+  - TypeInType
+  - DataKinds
+  - KindSignatures
+  - TypeOperators
+  - TypeApplications
+  - GADTs
+  - NamedFieldPuns
+  - InstanceSigs
+  - MultiParamTypeClasses
+  - FunctionalDependencies
+  - ConstrainedClassMethods
+  - InstanceSigs
+  - FlexibleInstances
+  - FlexibleContexts
+  - BangPatterns
+  - ViewPatterns
+  - PatternGuards
+  - MultiWayIf
+  - EmptyCase
+  - LambdaCase
+
+library:
+  exposed-modules: Deque
+  source-dirs: src
+  ghc-options: -Wall
+  # dependencies:
+  # - foo       # List here the packages you
+  # - bar       # want to use in your solution.
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - linked-list
+      - hspec
