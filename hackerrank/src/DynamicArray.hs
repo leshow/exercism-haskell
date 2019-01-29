@@ -3,8 +3,10 @@ module DynamicArray where
 import           Data.Bits
 import           Data.Array.ST
 import           Control.Monad.ST
-import qualified Data.Vector.Mutable                        as MV
-import qualified Data.Vector.Generic.Mutable as GM
+import           Control.Monad
+import           Data.STRef
+import qualified Data.Vector                        as V
+import           Data.Vector                         ( (!) )
 import           Data.List                    hiding ( foldr )
 import           Data.Text                           ( pack
                                                      , unpack
@@ -15,18 +17,25 @@ import           System.Environment                  ( getEnv )
 import qualified System.IO                          as IO
 
 dynamicArray :: Int -> [[Int]] -> [Int]
-dynamicArray n queries = undefined
-  where
-    vec n = runST $ do 
-        v <- MV.new n
-        forM_ [0..n] $ \i -> MV.write (MV.new 0) i
-    seqs = foldr handleQuery (0, vec) queries
-        handleQuery [q, x, y] (lastAnswer, v) = 
-            let idx = (x `xor` lastAnswer) `mod` n
-            in
-                case q of
-                    1 -> (lastAnswer, V.snoc (V.! v idx) y)
-                    2 -> ()
+dynamicArray n queries = runST $ do
+    m <- newArray (1, n + 1) V.empty :: ST s (STArray s Int (V.Vector Int))
+    res <- newSTRef V.empty
+    lastAnswer <- newSTRef 0
+    forM_ queries $ \[q, x, y] -> do
+        last <- readSTRef lastAnswer
+        let idx = ((x `xor` last) `mod` n) + 1
+        case q of
+            1 -> do
+                v' <- readArray m idx
+                writeArray m idx (V.snoc v' y)
+            2 -> do
+                v' <- readArray m idx
+                let newlast = (v' ! (y `mod` (V.length v')))
+                writeSTRef lastAnswer newlast
+                r' <- readSTRef res
+                writeSTRef res (V.snoc r' newlast)
+    V.toList <$> readSTRef res
+
 
 
 lstrip = Data.Text.unpack . Data.Text.stripStart . Data.Text.pack
