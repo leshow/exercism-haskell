@@ -51,6 +51,7 @@ executable hackerrank
                              , RankNTypes
                              , TypeFamilies
                              , TypeInType
+                             , PolyKinds
                              , DataKinds
                              , KindSignatures
                              , TypeOperators
@@ -58,6 +59,7 @@ executable hackerrank
                              , GADTs
                              , NamedFieldPuns
                              , InstanceSigs
+                             , TypeSynonymInstances
                              , MultiParamTypeClasses
                              , FunctionalDependencies
                              , ConstrainedClassMethods
