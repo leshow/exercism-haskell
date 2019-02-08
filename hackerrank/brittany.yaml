@@ -19,6 +19,7 @@ conf_forward:
     - -XRankNTypes
     - -XTypeFamilies
     - -XTypeInType
+    - -XPolyKinds
     - -XDataKinds
     - -XKindSignatures
     - -XTypeOperators
@@ -26,6 +27,7 @@ conf_forward:
     - -XGADTs
     - -XNamedFieldPuns
     - -XInstanceSigs
+    - -XTypeSynonymInstances
     - -XMultiParamTypeClasses
     - -XFunctionalDependencies
     - -XConstrainedClassMethods

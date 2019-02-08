@@ -4,7 +4,7 @@ import qualified Data.Map                           as Map
 
 makeAnagram :: String -> String -> Int
 makeAnagram a b = sumdiff (Map.differenceWith getdiff am bm)
-    + sumdiff (Map.difference bm am)
+  + sumdiff (Map.difference bm am)
   where
     am      = charmap a
     bm      = charmap b
