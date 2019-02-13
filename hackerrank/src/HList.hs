@@ -39,7 +39,8 @@ instance Show (HList '[]) where
     show HNil = "[]"
 
 instance (Show a, Show (HList as)) => Show (HList (a ': as)) where
-    showsPrec p (a :*: as) = showParen (p > 5) $ showsPrec 6 a . (":*:"<>) . showsPrec 5 as
+    showsPrec p (a :*: as) =
+        showParen (p > 5) $ showsPrec 6 a . (":*:" <>) . showsPrec 5 as
 
 -- for reference:
 data List a = N | C a (List a)
