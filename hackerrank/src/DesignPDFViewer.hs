@@ -6,5 +6,5 @@ import qualified Data.Map                           as Map
 designerPdfViewer :: [Int] -> String -> Int
 designerPdfViewer h word = tallest * length word
   where
-    abcMap = Map.fromList $ zip ['a' .. 'z'] h
+    abcMap  = Map.fromList $ zip ['a' .. 'z'] h
     tallest = foldr (\c m -> max m (Map.findWithDefault 0 c abcMap)) 0 word
