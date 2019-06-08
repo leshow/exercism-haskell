@@ -17,6 +17,7 @@ executable hackerrank
   hs-source-dirs:      src
   main-is:             Main.hs
   other-modules:       MigratoryBirds
+                     , Spiral
   default-language:    Haskell2010
   build-depends:       base >= 4.10 && < 5
                      , async
@@ -32,6 +33,7 @@ executable hackerrank
                      , aeson
                      , array
                      , split
+                     , xturtle
   ghc-options:         -O2 -threaded "-with-rtsopts=-N" -Wall -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -frefinement-level-hole-fits=1
   default-extensions:          DeriveFoldable
                              , DeriveFunctor

@@ -64,3 +64,6 @@ packages:
 # compiler-check: newer-minor
 extra-deps:
   - unagi-chan-0.4.1.0
+  - xturtle-0.2.0.0 
+  - yjsvg-0.2.0.1
+  - HaXml-1.25.5
