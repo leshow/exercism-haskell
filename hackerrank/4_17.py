@@ -1,5 +1,6 @@
 import turtle
 from random import *
+from typing import List, Tuple
 
 
 def fact(n):
@@ -103,7 +104,19 @@ def runKoch():
 
 runKoch()
 
-# a  b  c
+
+def knapsack(items: List[Tuple[int, int]], total: int) -> int:
+    t = [[0] * total+1 for _ in range(len(items)+1)]
+    for i in range(len(items)+1):
+        for j in range(total+1):
+            if i == 0 or j == 0:
+                t[i][j] = 0
+            elif items[i-1][0] <= j:
+                t[i][j] = max(items[i-1][1] + t[i-1]
+                              [j-items[i-1][0]], t[i-1][j])
+            else:
+                t[i][j] = t[i-1][j]
+    return t[len(items)][total]
 
 
 def hanoi(n, fr, to, aux):
