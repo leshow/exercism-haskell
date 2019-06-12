@@ -78,3 +78,28 @@ knapsack arr total = runST $ do
     traceShowM dp'
     pure (dp' Data.Matrix.! (itemlen, total))
 
+koch :: Double -> Double -> Turtle -> IO ()
+koch a order t
+    | order <= 0 = forward t a
+    | otherwise = forM_ [60, -120, 60, 0] $ \angle -> do
+        koch (a / 3) (order - 1) t
+        left t angle
+
+runKoch :: IO ()
+runKoch = do
+    t <- openField >>= newTurtle
+    let size  = 400
+        order = 4
+    penup t
+    backward t (size / 1.732)
+    left t 30
+    pendown t
+    speed t "fastest"
+    bgcolor t (0 :: Word8, 0 :: Word8, 0 :: Word8)
+    pencolor t (201 :: Word8, 253 :: Word8, 255 :: Word8)
+    beginfill t
+    forM_ [(0 :: Word8) .. 2] $ \_ -> do
+        koch size order t
+        right t 120
+    endfill t
+

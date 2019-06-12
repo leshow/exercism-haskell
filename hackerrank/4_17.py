@@ -1,21 +1,24 @@
 import turtle
-from random import *
-from typing import List, Tuple
+from random import randrange
+from typing import List, Tuple, TypeVar
 
 
 def fact(n):
+    """ 1 """
     if n <= 0:
         return 1
     return n * fact(n-1)
 
 
 def reverse(xs):
+    """ 2 """
     if len(xs) == 0:
         return []
     return reverse(xs[1:]) + xs[:1]
 
 
 def drawTree(tlen, size, t):
+    """ 3 """
     if tlen > 5:
         t.color("brown")
         if size > 0:
@@ -37,7 +40,7 @@ def drawTree(tlen, size, t):
         t.backward(tlen)
 
 
-def main():
+def runTree():
     t = turtle.Turtle()
     win = turtle.Screen()
     t.left(90)
@@ -50,12 +53,14 @@ def main():
 
 
 def fibrec(n):
+    """ 5 """
     if n == 0 or n == 1:
         return n
     return fibrec(n-1) + fibrec(n-2)
 
 
 def fibdp(n):
+    """ 5 """
     if n == 0 or n == 1:
         return n
     fib = [0]*n
@@ -67,6 +72,7 @@ def fibdp(n):
 
 
 def fibgen():
+    """ 5 """
     a = 0
     b = 1
     t = 0
@@ -77,7 +83,8 @@ def fibgen():
         b = t
 
 
-def koch(t, a, order):
+def koch(t, a, order: int):
+    """ 8 """
     if order > 0:
         for ar in [60, -120, 60, 0]:
             koch(t, a / 3, order - 1)
@@ -85,9 +92,11 @@ def koch(t, a, order):
     else:
         t.forward(a)
 
+# def hilbert:
 
-# main()
+
 def runKoch():
+    """ 8 """
     t = turtle.Turtle()
     t.color("sky blue", "white")
     t.penup()
@@ -106,6 +115,7 @@ def runKoch():
 
 
 def knapsack(items: List[Tuple[int, int]], total: int) -> int:
+    """ 14 """
     t = [[0] * (total+1) for i in range(len(items)+1)]
     for i in range(len(items)+1):
         for j in range(total+1):
@@ -121,10 +131,30 @@ def knapsack(items: List[Tuple[int, int]], total: int) -> int:
     return t[len(items)][total]
 
 
-print(knapsack([(10, 60), (20, 100), (30, 120)], 50))
+# print(knapsack([(10, 60), (20, 100), (30, 120)], 50))
+
+S = TypeVar('S', str, bytes)
+
+
+def edit_dist(a: S, b: S) -> int:
+    """ 15 """
+    t = [[0]*(len(a)+1) for _ in range(len(b)+1)]
+    for i in range(len(a)+1):
+        for j in range(len(b)+1):
+            if i == 0 or j == 0:
+                t[i][j] = 0
+            elif a[i-1] == b[j-1]:
+                t[i][j] = t[i-1][j-1]
+            else:
+                t[i][j] = min(5 + t[i-1][j], 20 + t[i][j-1], 20 + t[i-1][j-1])
+    return t[len(a)][len(b)]
+
+
+print(edit_dist("algorithm", "alligator"))
 
 
 def hanoi(n, fr, to, aux):
+    """ 12 """
     if n == 0:
         print("Moving from {} to {}".format(fr, to))
     else:
