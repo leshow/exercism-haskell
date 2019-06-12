@@ -102,11 +102,11 @@ def runKoch():
     t.end_fill()
 
 
-runKoch()
+# runKoch()
 
 
 def knapsack(items: List[Tuple[int, int]], total: int) -> int:
-    t = [[0] * total+1 for _ in range(len(items)+1)]
+    t = [[0] * (total+1) for i in range(len(items)+1)]
     for i in range(len(items)+1):
         for j in range(total+1):
             if i == 0 or j == 0:
@@ -116,7 +116,12 @@ def knapsack(items: List[Tuple[int, int]], total: int) -> int:
                               [j-items[i-1][0]], t[i-1][j])
             else:
                 t[i][j] = t[i-1][j]
+    for i in t:
+        print(i)
     return t[len(items)][total]
+
+
+print(knapsack([(10, 60), (20, 100), (30, 120)], 50))
 
 
 def hanoi(n, fr, to, aux):

@@ -7,7 +7,7 @@ import           Graphics.X11.Turtle
 import           Control.Monad.ST
 import           Data.STRef
 import           Data.Array
-import           Data.Matrix
+import           Data.Matrix                  hiding ( trace )
 import           Debug.Trace
 
 drawTree :: Double -> Double -> Turtle -> IO ()
@@ -47,22 +47,27 @@ data Item = Item
     , value :: Int
     } deriving (Show, Eq)
 
+-- | Array passed to it must be 1-indexed because Data.Matrix is 1-indexed
+-- ex. knapsack (listArray (1,3) [Item{weight=10,value=60}, Item{weight=20, value=100}, Item{weight=30, value=120}]) 50
 knapsack :: Array Int Item -> Int -> Int
 knapsack arr total = runST $ do
-    let itemlen = snd $ bounds arr
-        dp      = matrix (itemlen + 1) (total + 1) $ \(_, _) -> 0
+    let itemlen = 1 + snd (bounds arr)
+        dp      = zero (itemlen + 1) (total + 1)
+    traceShowM dp
     dref <- newSTRef dp
-    forM_ [0 .. itemlen] $ \i -> do
-        forM_ [0 .. total] $ \j -> do
+    forM_ [1 .. itemlen] $ \i -> do
+        forM_ [1 .. total] $ \j -> do
             if
-                | i == 0 || j == 0 -> do
+                | i == 1 || j == 1 -> do
                     dp' <- readSTRef dref
                     writeSTRef dref (setElem 0 (i, j) dp')
                 | weight (arr Data.Array.! (i - 1)) <= j -> do
                     let Item { weight = w, value = v } =
                             arr Data.Array.! (i - 1)
                     dp' <- readSTRef dref
-                    let maxV = max (v + dp' Data.Matrix.! (i - 1, j - w))
+                    let w' = if j - w == 0 then 1 else j - w -- 1 indexes are stupid
+                    let
+                        maxV = max (v + dp' Data.Matrix.! (i - 1, w'))
                                    (dp' Data.Matrix.! (i - 1, j))
                     writeSTRef dref (setElem maxV (i, j) dp')
                 | otherwise -> do
@@ -70,4 +75,6 @@ knapsack arr total = runST $ do
                     let val = dp' Data.Matrix.! (i - 1, j)
                     writeSTRef dref (setElem val (i, j) dp')
     dp' <- readSTRef dref
+    traceShowM dp'
     pure (dp' Data.Matrix.! (itemlen, total))
+
