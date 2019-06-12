@@ -1,7 +1,7 @@
 module Spiral where
 
 import           Graphics.X11.Turtle
-import Control.Monad
+import           Control.Monad
 import           Data.Word
 
 drawSpiral :: Double -> Turtle -> IO ()
@@ -70,14 +70,14 @@ runSierpenski = openField >>= newTurtle >>= sierpenski triangle 4
 
 -- 4.17 Exercises 
 -- 1.
-reverse :: [a] -> [a]
-reverse [] = []
-reverse (x:xs) = reverse xs <> [x]
+rev :: [a] -> [a]
+rev []       = []
+rev (x : xs) = rev xs <> [x]
 
 -- 13.
 
-fact :: Int -> [Int]
-fact n = product [1..n]
+fact :: Int -> Int
+fact n = product [1 .. n]
 
 
 -- pascals :: Int -> [String]
