@@ -9,6 +9,8 @@ import           Data.STRef
 import           Data.Array
 import           Data.Matrix                  hiding ( trace )
 import           Debug.Trace
+import qualified Data.Map as Map
+import Data.Map (Map)
 
 drawTree :: Double -> Double -> Turtle -> IO ()
 drawTree len sz t
@@ -103,3 +105,14 @@ runKoch = do
         right t 120
     endfill t
 
+
+minCoins :: Int -> [Int] -> Int
+minCoins total coins
+    | total <= 0
+    = 0
+    | otherwise
+    = let possibleCoins = [ c | c <- coins, c <= total ]
+      in  foldr
+              (\c minValue -> min (1 + minCoins (total - c) coins) minValue)
+              (maxBound @Int)
+              possibleCoins

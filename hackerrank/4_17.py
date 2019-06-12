@@ -156,8 +156,52 @@ print(edit_dist("algorithm", "alligator"))
 def hanoi(n, fr, to, aux):
     """ 12 """
     if n == 0:
-        print("Moving from {} to {}".format(fr, to))
+        to.push(fr.pop())
     else:
         hanoi(n-1, fr, aux, to)
-        print("Moving from {} to {}".format(fr, to))
+        to.push(fr.pop())
         hanoi(n-1, to, fr, aux)
+
+
+class Disc(turtle.Turtle):
+    def __init__(self, n):
+        turtle.Turtle.__init__(self, shape="square", visible=False)
+        self.up()
+        self.shapesize(1.5, n*1.5, 2)
+        self.fillcolor(randrange(0, 255), randrange(0, 255), randrange(0, 255))
+
+
+class Peg(list):
+    def __init__(self, x):
+        self.x = x
+
+    def pop(self):
+        disc = list.pop(self)
+        disc.sety(150)
+        return disc
+
+    def push(self, disc):
+        disc.setx(self.x)
+        disc.sety(len(self)*150)
+        self.append(disc)
+
+
+def runHanoi():
+    discs = 4
+    pega = Peg(-300)
+    pegb = Peg(0)
+    pegc = Peg(300)
+    for i in range(0, discs, -1):
+        disc = Disc(i)
+        pega.push(disc)
+    hanoi(discs, pega, pegb, pegc)
+    return "EVENTLOOP"
+
+
+def runH():
+    msg = runHanoi()
+    print(msg)
+    turtle.mainloop()
+
+
+# runH()
