@@ -1,6 +1,7 @@
 module Spiral where
 
 import           Graphics.X11.Turtle
+import Control.Monad
 import           Data.Word
 
 drawSpiral :: Double -> Turtle -> IO ()
@@ -66,3 +67,22 @@ sierpenski pts@((a, a'), (b, b'), (c, c')) deg t = do
 
 runSierpenski :: IO ()
 runSierpenski = openField >>= newTurtle >>= sierpenski triangle 4
+
+-- 4.17 Exercises 
+-- 1.
+reverse :: [a] -> [a]
+reverse [] = []
+reverse (x:xs) = reverse xs <> [x]
+
+-- 13.
+
+fact :: Int -> [Int]
+fact n = product [1..n]
+
+
+-- pascals :: Int -> [String]
+-- pascals n = forM_ [0..n] $ \line -> do 
+--     forM_ [0..line] $ \i -> do 
+--         anr line i
+--     where 
+--         anr n r = fact n / (fact (n-r) * fact r)
