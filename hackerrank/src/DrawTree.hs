@@ -9,8 +9,8 @@ import           Data.STRef
 import           Data.Array
 import           Data.Matrix                  hiding ( trace )
 import           Debug.Trace
-import qualified Data.Map as Map
-import Data.Map (Map)
+import           Data.Char                           ( ord )
+
 
 drawTree :: Double -> Double -> Turtle -> IO ()
 drawTree len sz t
@@ -57,25 +57,22 @@ knapsack arr total = runST $ do
         dp      = zero (itemlen + 1) (total + 1)
     traceShowM dp
     dref <- newSTRef dp
-    forM_ [1 .. itemlen] $ \i -> do
-        forM_ [1 .. total] $ \j -> do
-            if
-                | i == 1 || j == 1 -> do
-                    dp' <- readSTRef dref
-                    writeSTRef dref (setElem 0 (i, j) dp')
-                | weight (arr Data.Array.! (i - 1)) <= j -> do
-                    let Item { weight = w, value = v } =
-                            arr Data.Array.! (i - 1)
-                    dp' <- readSTRef dref
-                    let w' = if j - w == 0 then 1 else j - w -- 1 indexes are stupid
-                    let
-                        maxV = max (v + dp' Data.Matrix.! (i - 1, w'))
-                                   (dp' Data.Matrix.! (i - 1, j))
-                    writeSTRef dref (setElem maxV (i, j) dp')
-                | otherwise -> do
-                    dp' <- readSTRef dref
-                    let val = dp' Data.Matrix.! (i - 1, j)
-                    writeSTRef dref (setElem val (i, j) dp')
+    forM_ [1 .. itemlen] $ \i -> forM_ [1 .. total] $ \j -> if
+        | i == 1 || j == 1 -> do
+            dp' <- readSTRef dref
+            writeSTRef dref (setElem 0 (i, j) dp')
+        | weight (arr Data.Array.! (i - 1)) <= j -> do
+            let Item { weight = w, value = v } = arr Data.Array.! (i - 1)
+            dp' <- readSTRef dref
+            let w' = if j - w == 0 then 1 else j - w -- 1 indexes are stupid
+            let
+                maxV = max (v + dp' Data.Matrix.! (i - 1, w'))
+                           (dp' Data.Matrix.! (i - 1, j))
+            writeSTRef dref (setElem maxV (i, j) dp')
+        | otherwise -> do
+            dp' <- readSTRef dref
+            let val = dp' Data.Matrix.! (i - 1, j)
+            writeSTRef dref (setElem val (i, j) dp')
     dp' <- readSTRef dref
     traceShowM dp'
     pure (dp' Data.Matrix.! (itemlen, total))
@@ -116,3 +113,4 @@ minCoins total coins
               (\c minValue -> min (1 + minCoins (total - c) coins) minValue)
               (maxBound @Int)
               possibleCoins
+

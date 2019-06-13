@@ -1,7 +1,6 @@
 module Spiral where
 
 import           Graphics.X11.Turtle
-import           Control.Monad
 import           Data.Word
 
 drawSpiral :: Double -> Turtle -> IO ()
@@ -47,7 +46,7 @@ drawTriangle ((a, a'), (b, b'), (c, c')) col t = do
 
 sierpenski :: Triangle -> Double -> Turtle -> IO ()
 sierpenski pts@((a, a'), (b, b'), (c, c')) deg t = do
-    drawTriangle pts (colors !! (round deg)) t
+    drawTriangle pts (colors !! round deg) t
     if deg > 0
         then do
             sierpenski ((a, a'), mid (a, a') (b, b'), mid (a, a') (c, c'))
