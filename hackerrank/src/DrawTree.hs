@@ -9,8 +9,11 @@ import           Data.STRef
 import           Data.Array
 import           Data.Matrix                  hiding ( trace )
 import           Debug.Trace
+<<<<<<< HEAD
 import           Data.Char                           ( ord )
 
+=======
+>>>>>>> Change speed to fastest
 
 drawTree :: Double -> Double -> Turtle -> IO ()
 drawTree len sz t
@@ -93,7 +96,7 @@ runKoch = do
     backward t (size / 1.732)
     left t 30
     pendown t
-    speed t "fastest"
+    speed t "fast"
     bgcolor t (0 :: Word8, 0 :: Word8, 0 :: Word8)
     pencolor t (201 :: Word8, 253 :: Word8, 255 :: Word8)
     beginfill t
