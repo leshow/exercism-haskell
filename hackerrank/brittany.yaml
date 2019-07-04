@@ -30,6 +30,7 @@ conf_forward:
     - -XTypeSynonymInstances
     - -XMultiParamTypeClasses
     - -XFunctionalDependencies
+    - -XPartialTypeSignatures
     - -XConstrainedClassMethods
     - -XInstanceSigs
     - -XFlexibleInstances

@@ -64,6 +64,7 @@ executable hackerrank
                              , GADTs
                              , NamedFieldPuns
                              , InstanceSigs
+                             , PartialTypeSignatures
                              , TypeSynonymInstances
                              , MultiParamTypeClasses
                              , FunctionalDependencies
