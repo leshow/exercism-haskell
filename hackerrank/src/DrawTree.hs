@@ -9,11 +9,6 @@ import           Data.STRef
 import           Data.Array
 import           Data.Matrix                  hiding ( trace )
 import           Debug.Trace
-<<<<<<< HEAD
-import           Data.Char                           ( ord )
-
-=======
->>>>>>> Change speed to fastest
 
 drawTree :: Double -> Double -> Turtle -> IO ()
 drawTree len sz t
