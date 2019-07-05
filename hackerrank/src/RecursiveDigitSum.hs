@@ -8,15 +8,18 @@ module RecursiveDigitSum where
 -}
 import           Data.Monoid
 import           Data.Coerce
-import           Data.Foldable
+import           Data.Char
 
-superDigit :: Int -> Int -> Int
-superDigit n k =
-    flip getSuper 0 $ getSum $ fold $ (coerce @Int . read) <$> replicate
-        k
-        (show n)
+superDigit :: String -> Int -> Int
+superDigit n k = if length n > 1
+    then superDigit (show $ k * getSum (foldMap (sum_ . digitToInt) n)) 1
+    else digitToInt $ head n
 
-getSuper :: Int -> Int -> Int
-getSuper !num !acc | acc < 10 && num == 0 = acc
-                   | num == 0 = getSuper acc 0
-                   | otherwise = getSuper (num `div` 10) (num `mod` 10 + acc)
+sum_ :: Int -> Sum Int
+sum_ = coerce
+
+-- bleh
+superDigit' :: String -> Int -> Int
+superDigit' n k = if length n > 1
+    then superDigit' (show $ k * sum (map digitToInt n)) 1
+    else digitToInt $ head n
