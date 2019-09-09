@@ -1,15 +1,20 @@
--- This file has been generated from package.yaml by hpack version 0.17.0.
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
 --
 -- see: https://github.com/sol/hpack
+--
+-- hash: 2f4220dbd176da32a0b7690abe0cba87969d93cc44a4cbe6d9c500d78ceab918
 
 name:           phone-number
-version:        0.0.0
+version:        1.6.1.8
 build-type:     Simple
-cabal-version:  >= 1.10
 
 library
   hs-source-dirs:
       src
+  default-extensions: DeriveFoldable , DeriveFunctor , DeriveGeneric , DeriveTraversable , DeriveLift , DeriveAnyClass , DerivingStrategies , GeneralizedNewtypeDeriving , OverloadedStrings , OverloadedLabels , ExistentialQuantification , StandaloneDeriving , ScopedTypeVariables , UnicodeSyntax , BinaryLiterals , NumDecimals , ConstraintKinds , RankNTypes , TypeFamilies , TypeInType , PolyKinds , DataKinds , KindSignatures , TypeOperators , TypeApplications , GADTs , NamedFieldPuns , InstanceSigs , PartialTypeSignatures , TypeSynonymInstances , MultiParamTypeClasses , FunctionalDependencies , ConstrainedClassMethods , InstanceSigs , FlexibleInstances , FlexibleContexts , BangPatterns , ViewPatterns , PatternGuards , MultiWayIf , EmptyCase , LambdaCase
+  ghc-options: -Wall
   build-depends:
       base
   exposed-modules:
@@ -21,10 +26,13 @@ library
 test-suite test
   type: exitcode-stdio-1.0
   main-is: Tests.hs
+  other-modules:
+      Paths_phone_number
   hs-source-dirs:
       test
+  default-extensions: DeriveFoldable , DeriveFunctor , DeriveGeneric , DeriveTraversable , DeriveLift , DeriveAnyClass , DerivingStrategies , GeneralizedNewtypeDeriving , OverloadedStrings , OverloadedLabels , ExistentialQuantification , StandaloneDeriving , ScopedTypeVariables , UnicodeSyntax , BinaryLiterals , NumDecimals , ConstraintKinds , RankNTypes , TypeFamilies , TypeInType , PolyKinds , DataKinds , KindSignatures , TypeOperators , TypeApplications , GADTs , NamedFieldPuns , InstanceSigs , PartialTypeSignatures , TypeSynonymInstances , MultiParamTypeClasses , FunctionalDependencies , ConstrainedClassMethods , InstanceSigs , FlexibleInstances , FlexibleContexts , BangPatterns , ViewPatterns , PatternGuards , MultiWayIf , EmptyCase , LambdaCase
   build-depends:
       base
-    , phone-number
     , hspec
+    , phone-number
   default-language: Haskell2010
