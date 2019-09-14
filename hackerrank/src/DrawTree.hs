@@ -45,7 +45,7 @@ runTree = do
 data Item = Item
     { weight :: Int
     , value :: Int
-    } deriving (Show, Eq)
+    } deriving stock (Show, Eq)
 
 -- | Array passed to it must be 1-indexed because Data.Matrix is 1-indexed
 -- ex. knapsack (listArray (1,3) [Item{weight=10,value=60}, Item{weight=20, value=100}, Item{weight=30, value=120}]) 50

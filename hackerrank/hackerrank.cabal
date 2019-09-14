@@ -44,6 +44,7 @@ executable hackerrank
                              , DeriveLift
                              , DeriveAnyClass
                              , DerivingStrategies
+                             , DerivingVia
                              , GeneralizedNewtypeDeriving
                              , OverloadedStrings
                              , OverloadedLabels

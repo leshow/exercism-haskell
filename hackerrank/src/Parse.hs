@@ -3,11 +3,9 @@ module Parse where
 import           Control.Monad
 import           Data.Char
 import           Control.Applicative
-import           GHC.TypeLits
-import           GHC.TypeNats
-import           Data.Kind
 
-data Parsed = Digit Integer | Hex Integer | Word String deriving Show
+data Parsed = Digit Integer | Hex Integer | Word String
+    deriving stock Show
 
 parseHex :: Parsed -> Char -> [Parsed]
 parseHex (Hex i) c = if isHexDigit c
