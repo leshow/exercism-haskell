@@ -36,6 +36,8 @@ executable hackerrank
                      , xturtle
                      , matrix
                      , heaps
+                     , monad-par
+                     , parsec
   ghc-options:         -O2 -threaded "-with-rtsopts=-N" -Wall -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -frefinement-level-hole-fits=1
   default-extensions:          DeriveFoldable
                              , DeriveFunctor
