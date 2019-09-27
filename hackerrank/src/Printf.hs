@@ -56,17 +56,18 @@ tryPar f (x, y) = P.runEval $ do
     P.rseq b
     pure (a, b)
 
-par_fib :: (Num a, Eq a) => a -> a
-par_fib 0 = 1
-par_fib 1 = 1
-par_fib n = P.runEval $ do
-    n1 <- P.rpar $ par_fib (n - 1)
-    n2 <- P.rpar $ par_fib (n - 2)
+parFib :: (Num a, Eq a) => a -> a
+parFib 0 = 1
+parFib 1 = 1
+parFib n = P.runEval $ do
+    n1 <- P.rpar $ parFib (n - 1)
+    n2 <- P.rpar $ parFib (n - 2)
     pure (n1 + n2)
 
-par_map :: (a -> b) -> [a] -> P.Eval [b]
-par_map _ []       = pure []
-par_map f (x : xs) = do
+parMap :: (a -> b) -> [a] -> P.Eval [b]
+parMap _ []       = pure []
+parMap f (x : xs) = do
     x'  <- P.rpar (f x)
-    xs' <- par_map f xs
+    xs' <- parMap f xs
     pure (x' : xs')
+

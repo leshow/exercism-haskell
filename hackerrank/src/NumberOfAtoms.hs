@@ -1,18 +1,16 @@
 module NumberOfAtoms where
 
 import           Text.Parsec                  hiding ( (<|>) )
-import           Text.Parsec.Char
-import           Text.Parsec.Combinator
 import           Text.Parsec.String                  ( Parser )
 import           Control.Applicative          hiding ( many )
-import           Control.Monad                hiding ( many )
-import           Data.Char
-import qualified Data.IntSet                        as Set
+import           Control.Monad
 import           Data.Maybe                          ( fromMaybe )
 import           Text.Read                           ( readMaybe )
-import qualified Data.Map.Strict as Map
+import qualified Data.Map.Strict                    as Map
+import           Data.STRef
+import           Control.Monad.ST
 
-parsye rule text = parse rule "" text
+parsye rule = parse rule ""
 
 brackets :: Parser String
 brackets = do
@@ -38,7 +36,7 @@ parseWithLeftOver p = parse ((,) <$> p <*> leftOver) ""
     where leftOver = manyTill anyToken eof
 
 data Formula = Atom String Int | Comb [Formula] Int
-    deriving stock (Eq, Show)
+    deriving (Eq, Show)
 
 -- Mg(OH)2
 -- Comb Mg 1 [Atom O 1, Atom H 1] 2
@@ -46,6 +44,7 @@ data Formula = Atom String Int | Comb [Formula] Int
 -- Comb K 4 [ Atom O 1, Comb N 1 [ Atom S 1, Atom O 3] 2 ] 2
 -- Mg(OH)2
 
+parseFormula :: String -> IO ()
 parseFormula = print . regularParse formula
 
 formula :: Parser Formula
@@ -72,11 +71,31 @@ elements =
         <$> words
                 "Np Pu Am Cm Bk Cf Es Fm Md No Lr Rf Db Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og He Li Be Ne Na Mg Al Si Cl Ar Ca Sc Ti Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr Rb Sr Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te Xe Cs Ba La Ce Pr Nd Pm Sm Gd Tb Dy Ho Er Tm Yb Lu Hf Ta Re Os Ir Pt Au Hg Tl Pb Bi Po At Ra Ac Th Pa H B C N O F P S K V Y I W U"
 
+addTotalST :: Formula -> [(String, Int)]
+addTotalST f = Map.toList $ go f Map.empty
+  where
+    go :: Formula -> Map.Map String Int -> Map.Map String Int
+    go (Atom s  i) m = Map.insertWith (*) s i m
+    go (Comb xs i) m = runST $ do
+        let maps = fmap (`go` m) xs
+        acc <- newSTRef Map.empty
+        forM_
+            maps
+            (\a -> forM_
+                (Map.toList a)
+                (\(k, v) -> do
+                    acc' <- readSTRef acc
+                    writeSTRef acc (Map.insertWith (*) k (i * v) acc')
+                )
+            )
+        readSTRef acc
+
 addTotal :: Formula -> [(String, Int)]
-addTotal f = go f Map.empty
-    where 
-        go (Atom s i) m = Map.insert s i m
-        go (Comb xs i) m = let maps = fmap (\f -> go f m) xs
-                            in 
-                                foldr (\total m -> ) maps
-                                
+addTotal f = Map.toList $ go f Map.empty
+  where
+    go :: Formula -> Map.Map String Int -> Map.Map String Int
+    go (Atom s  i) m = Map.insertWith (*) s i m
+    go (Comb xs i) m = foldr
+        (flip $ Map.foldrWithKey (\k v x -> Map.insertWith (*) k (i * v) x))
+        Map.empty
+        (fmap (`go` m) xs)
