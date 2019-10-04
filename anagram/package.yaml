@@ -1,0 +1,65 @@
+name: anagram
+version: 1.4.0.8
+
+dependencies:
+  - base
+  - containers
+
+library:
+  exposed-modules: Anagram
+  source-dirs: src
+  ghc-options: -Wall
+  # dependencies:
+  # - foo       # List here the packages you
+  # - bar       # want to use in your solution.
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - anagram
+      - hspec
+
+default-extensions: DeriveFoldable
+  , DeriveFunctor
+  , DeriveGeneric
+  , DeriveTraversable
+  , DeriveLift
+  , DerivingStrategies
+  , GeneralizedNewtypeDeriving
+  , OverloadedStrings
+  , OverloadedLabels
+  , ExistentialQuantification
+  , StandaloneDeriving
+  , ScopedTypeVariables
+  , UnicodeSyntax
+  , BinaryLiterals
+  , NumDecimals
+  , ConstraintKinds
+  , RankNTypes
+  , TypeFamilies
+  , TypeInType
+  , PolyKinds
+  , DataKinds
+  , KindSignatures
+  , TypeOperators
+  , TypeApplications
+  , GADTs
+  , NamedFieldPuns
+  , InstanceSigs
+  , TypeSynonymInstances
+  , MultiParamTypeClasses
+  , FunctionalDependencies
+  , PartialTypeSignatures
+  , ConstrainedClassMethods
+  , InstanceSigs
+  , FlexibleInstances
+  , FlexibleContexts
+  , BangPatterns
+  , ViewPatterns
+  , PatternGuards
+  , MultiWayIf
+  , EmptyCase
+  , LambdaCase
+  , DerivingVia
