@@ -1,0 +1,38 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: a6ec99945b122ce6603a332e8a943ddfb3cebf5bc206b1303bd73e61e1c1f0c0
+
+name:           collatz-conjecture
+version:        1.2.1.4
+build-type:     Simple
+
+library
+  exposed-modules:
+      CollatzConjecture
+  other-modules:
+      Paths_collatz_conjecture
+  hs-source-dirs:
+      src
+  default-extensions: DeriveFoldable , DeriveFunctor , DeriveGeneric , DeriveTraversable , DeriveLift , DeriveAnyClass , DerivingStrategies , GeneralizedNewtypeDeriving , OverloadedStrings , OverloadedLabels , ExistentialQuantification , StandaloneDeriving , ScopedTypeVariables , UnicodeSyntax , BinaryLiterals , NumDecimals , ConstraintKinds , RankNTypes , TypeFamilies , TypeInType , PolyKinds , DataKinds , KindSignatures , TypeOperators , TypeApplications , GADTs , NamedFieldPuns , InstanceSigs , PartialTypeSignatures , TypeSynonymInstances , MultiParamTypeClasses , FunctionalDependencies , ConstrainedClassMethods , InstanceSigs , FlexibleInstances , FlexibleContexts , BangPatterns , ViewPatterns , PatternGuards , MultiWayIf , EmptyCase , LambdaCase
+  ghc-options: -Wall
+  build-depends:
+      base
+  default-language: Haskell2010
+
+test-suite test
+  type: exitcode-stdio-1.0
+  main-is: Tests.hs
+  other-modules:
+      Paths_collatz_conjecture
+  hs-source-dirs:
+      test
+  default-extensions: DeriveFoldable , DeriveFunctor , DeriveGeneric , DeriveTraversable , DeriveLift , DeriveAnyClass , DerivingStrategies , GeneralizedNewtypeDeriving , OverloadedStrings , OverloadedLabels , ExistentialQuantification , StandaloneDeriving , ScopedTypeVariables , UnicodeSyntax , BinaryLiterals , NumDecimals , ConstraintKinds , RankNTypes , TypeFamilies , TypeInType , PolyKinds , DataKinds , KindSignatures , TypeOperators , TypeApplications , GADTs , NamedFieldPuns , InstanceSigs , PartialTypeSignatures , TypeSynonymInstances , MultiParamTypeClasses , FunctionalDependencies , ConstrainedClassMethods , InstanceSigs , FlexibleInstances , FlexibleContexts , BangPatterns , ViewPatterns , PatternGuards , MultiWayIf , EmptyCase , LambdaCase
+  build-depends:
+      base
+    , collatz-conjecture
+    , hspec
+  default-language: Haskell2010
