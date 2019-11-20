@@ -82,3 +82,4 @@ executable hackerrank
                              , MultiWayIf
                              , EmptyCase
                              , LambdaCase
+                             , TupleSections

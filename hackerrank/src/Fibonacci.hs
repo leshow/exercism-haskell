@@ -14,7 +14,7 @@ class Monad m where
 data State s a = State { runState :: s -> (a, s) }
 
 instance Monad (State s) where
-    return a = State $ \s -> (a, s)
+    return a = State (a, )
     sg >>= f = State $ \s -> let (a, s') = runState sg s in runState (f a) s'
 
 data Reader s a = Reader { runReader :: s -> a }
