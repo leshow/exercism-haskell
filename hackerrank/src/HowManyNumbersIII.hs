@@ -24,9 +24,7 @@ import           Control.Monad
 go :: Int -> Int -> Int -> [[Int]]
 go total n start
     | total < start = []
-    | n == 1 = do
-        guard (1 <= total && total <= 9)
-        pure [total]
+    | n == 1 = pure [total]
     | otherwise = do
         x <- [start .. 9]
         (x :) <$> go (total - x) (n - 1) x
