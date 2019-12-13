@@ -8,6 +8,7 @@ library:
   exposed-modules: CollatzConjecture
   source-dirs: src
   ghc-options: -Wall
+  default-extensions: DeriveFoldable , DeriveFunctor , DeriveGeneric , DeriveTraversable , DeriveLift , DeriveAnyClass , DerivingStrategies , GeneralizedNewtypeDeriving , OverloadedStrings , OverloadedLabels , ExistentialQuantification , StandaloneDeriving , ScopedTypeVariables , UnicodeSyntax , BinaryLiterals , NumDecimals , ConstraintKinds , RankNTypes , TypeFamilies , TypeInType , PolyKinds , DataKinds , KindSignatures , TypeOperators , TypeApplications , GADTs , NamedFieldPuns , InstanceSigs , PartialTypeSignatures , TypeSynonymInstances , MultiParamTypeClasses , FunctionalDependencies , ConstrainedClassMethods , InstanceSigs , FlexibleInstances , FlexibleContexts , BangPatterns , ViewPatterns , PatternGuards , MultiWayIf , EmptyCase , LambdaCase
   # dependencies:
   # - foo       # List here the packages you
   # - bar       # want to use in your solution.

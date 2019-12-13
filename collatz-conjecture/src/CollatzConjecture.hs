@@ -1,14 +1,21 @@
 module CollatzConjecture
-    ( collatz
-    )
+  ( collatz
+  )
 where
 
+import           Data.List                           ( unfoldr )
+
 collatz :: Integer -> Maybe Integer
-collatz n | n <= 0    = Nothing
-          | otherwise = Just $ go n
-  where
-    go :: Integer -> Integer
-    go n | n == 1    = 0
-         | even n    = 1 + go (n `div` 2)
-         | odd n     = 1 + go (3 * n + 1)
-         | otherwise = 0
+collatz n
+  | n <= 0
+  = Nothing
+  | otherwise
+  = Just
+    . toInteger
+    . length
+    . unfoldr (\x -> if x == 1 then Nothing else Just (go x, go x))
+    $ n
+ where
+  go x | even x    = x `div` 2
+       | odd x     = 3 * x + 1
+       | otherwise = 0

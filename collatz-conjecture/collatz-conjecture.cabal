@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a6ec99945b122ce6603a332e8a943ddfb3cebf5bc206b1303bd73e61e1c1f0c0
+-- hash: c5ebd5b3ecd8eddde65be69e1387625327178b2e47f9a036dd8481ea6bbe3889
 
 name:           collatz-conjecture
 version:        1.2.1.4
@@ -30,7 +30,6 @@ test-suite test
       Paths_collatz_conjecture
   hs-source-dirs:
       test
-  default-extensions: DeriveFoldable , DeriveFunctor , DeriveGeneric , DeriveTraversable , DeriveLift , DeriveAnyClass , DerivingStrategies , GeneralizedNewtypeDeriving , OverloadedStrings , OverloadedLabels , ExistentialQuantification , StandaloneDeriving , ScopedTypeVariables , UnicodeSyntax , BinaryLiterals , NumDecimals , ConstraintKinds , RankNTypes , TypeFamilies , TypeInType , PolyKinds , DataKinds , KindSignatures , TypeOperators , TypeApplications , GADTs , NamedFieldPuns , InstanceSigs , PartialTypeSignatures , TypeSynonymInstances , MultiParamTypeClasses , FunctionalDependencies , ConstrainedClassMethods , InstanceSigs , FlexibleInstances , FlexibleContexts , BangPatterns , ViewPatterns , PatternGuards , MultiWayIf , EmptyCase , LambdaCase
   build-depends:
       base
     , collatz-conjecture
