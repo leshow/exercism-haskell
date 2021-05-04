@@ -45,4 +45,3 @@ countingValleys _ s = go s 0 0
         | x == 'D'                   = go xs (level - 1) valleys
         | otherwise                  = error "only U and D allowed"
 
-

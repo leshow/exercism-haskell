@@ -2,7 +2,6 @@ module SumByFactors where
 
 import           Data.List
 import qualified Data.Set                           as Set
-import           Data.Monoid                         ( (<>) )
 
 sumOfDivided :: [Integer] -> [(Integer, Integer)]
 sumOfDivided xs =

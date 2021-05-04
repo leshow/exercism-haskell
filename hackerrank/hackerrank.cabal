@@ -16,8 +16,55 @@ extra-source-files:  README.md
 executable hackerrank
   hs-source-dirs:      src
   main-is:             Main.hs
-  other-modules:       MigratoryBirds
-                     , Spiral
+  other-modules:       AngryProfessor
+                    , AppendAndDelete
+                    , ArrayManipulation
+                    , BeautifulDays
+                    , BinaryStrings
+                    , ChocolateFeast
+                    , Combinations
+                    , Cont
+                    , CountingValleys
+                    , Day2
+                    , Day3
+                    , DayOfProgrammer
+                    , DesignPDFViewer
+                    , DirectionsReduction
+                    , DrawTree
+                    , DynamicArray
+                    , ElectronicsShop
+                    , ExplosiveSum
+                    , Fibonacci
+                    , FrequencyQueries
+                    , GenerateParentheses
+                    , HalloweenSale
+                    , HashtagGenerator
+                    , HowManyNumbersIII
+                    , JessieCookies
+                    , LicenseKeys
+                    , MagicSquareForming
+                    , MakingAnagrams
+                    , MaximumElement
+                    , MigratoryBirds
+                    , NumberOfAtoms
+                    , Parse
+                    , Permutations
+                    , Printf
+                    , RecursiveDigitSum
+                    , RecursiveStaircase
+                    , SaveThePrisoner
+                    , ServiceLane
+                    , SparseArrays
+                    , Spiral
+                    , StringsMix
+                    , SubarraysKDiff
+                    , SumByFactors
+                    , TenPinBowling
+                    , ThinkingWithTypes
+                    , Ticker
+                    , UtopianTree
+                    , ValidParenthesis
+                    , ViralAdvertising
   default-language:    Haskell2010
   build-depends:       base >= 4.10 && < 5
                      , async
@@ -27,7 +74,6 @@ executable hackerrank
                      , mtl                     
                      , transformers
                      , random
-                     , unagi-chan
                      , stm
                      , parallel
                      , aeson
@@ -38,7 +84,7 @@ executable hackerrank
                      , heaps
                      , monad-par
                      , parsec
-  ghc-options:         -O2 -threaded "-with-rtsopts=-N" -Wall -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -frefinement-level-hole-fits=1
+  ghc-options:         -O2 -threaded "-with-rtsopts=-N" -Wall -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -frefinement-level-hole-fits=1 -haddock
   default-extensions:          DeriveFoldable
                              , DeriveFunctor
                              , DeriveGeneric

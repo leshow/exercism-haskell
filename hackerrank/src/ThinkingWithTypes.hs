@@ -1,5 +1,5 @@
 {-# LANGUAGE UndecidableInstances #-}
-module HList where
+module ThinkingWithTypes where
 
 import           Data.Kind
 import           Data.Typeable

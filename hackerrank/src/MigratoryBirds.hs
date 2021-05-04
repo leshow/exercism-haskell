@@ -10,7 +10,6 @@ For example, assume your bird sightings are of types arr = {1,1,2,2,3}
 
 
 import qualified Data.IntMap                        as Map
-import           Data.IntMap                         ( IntMap )
 -- import           Data.Lens
 import           Data.Foldable
 import           Data.Function

@@ -1,4 +1,4 @@
-module MagicSquare where
+module MagicSquareForming where
 
 import           Data.List                           ( transpose )
 import           Data.Function                       ( (&) )

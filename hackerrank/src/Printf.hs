@@ -3,8 +3,6 @@
 module Printf where
 
 import           Data.Kind                           ( Type )
-import           Data.Monoid                         ( (<>) )
-import           Data.Proxy                          ( Proxy(..) )
 import           GHC.TypeLits
 import           Control.Monad.State
 import           System.Random
@@ -52,8 +50,8 @@ tryPar :: (t -> b) -> (t, t) -> (b, b)
 tryPar f (x, y) = P.runEval $ do
     a <- P.rpar (f x)
     b <- P.rpar (f y)
-    P.rseq a
-    P.rseq b
+    _ <- P.rseq a
+    _ <- P.rseq b
     pure (a, b)
 
 parFib :: (Num a, Eq a) => a -> a

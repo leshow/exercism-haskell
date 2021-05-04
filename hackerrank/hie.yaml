@@ -1,0 +1,151 @@
+cradle:
+  stack:
+    - path: "./src/Main.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/AngryProfessor.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/AppendAndDelete.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/ArrayManipulation.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/BeautifulDays.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/BinaryStrings.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/ChocolateFeast.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/Combinations.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/Cont.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/CountingValleys.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/Day2.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/Day3.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/DayOfProgrammer.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/DesignPDFViewer.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/DirectionsReduction.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/DrawTree.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/DynamicArray.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/ElectronicsShop.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/ExplosiveSum.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/Fibonacci.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/FrequencyQueries.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/GenerateParentheses.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/HalloweenSale.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/HashtagGenerator.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/HowManyNumbersIII.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/JessieCookies.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/LicenseKeys.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/MagicSquareForming.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/MakingAnagrams.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/MaximumElement.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/MigratoryBirds.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/NumberOfAtoms.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/Parse.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/Permutations.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/Printf.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/RecursiveDigitSum.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/RecursiveStaircase.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/SaveThePrisoner.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/ServiceLane.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/SparseArrays.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/Spiral.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/StringsMix.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/SubarraysKDiff.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/SumByFactors.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/TenPinBowling.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/ThinkingWithTypes.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/Ticker.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/UtopianTree.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/ValidParenthesis.hs"
+      component: "hackerrank:exe:hackerrank"
+
+    - path: "./src/ViralAdvertising.hs"
+      component: "hackerrank:exe:hackerrank"

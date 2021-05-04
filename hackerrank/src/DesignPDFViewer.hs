@@ -1,4 +1,4 @@
-module PDFViewer where
+module DesignPDFViewer where
 
 import qualified Data.Map                           as Map
 

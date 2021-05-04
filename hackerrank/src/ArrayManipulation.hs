@@ -1,5 +1,10 @@
 module ArrayManipulation where
 
+import           Data.Array.ST
+import           Control.Monad.ST
+import           Control.Monad
+import           Data.STRef
+
 {-|
 Starting with a 1-indexed array of zeros and a list of operations, for each operation add a value to each of the array element between two given indices, inclusive. Once all operations have been performed, return the maximum value in your array.
 
@@ -25,10 +30,6 @@ index->	 1 2 3  4  5 6 7 8 9 10
 
 The largest value is 10 after all operations are performed. 
 -}
-import           Data.Array.ST
-import           Control.Monad.ST
-import           Control.Monad
-import           Data.STRef
 
 
 arrayManipulation :: Int -> [[Int]] -> Int

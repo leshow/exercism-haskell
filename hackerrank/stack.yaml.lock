@@ -5,13 +5,6 @@
 
 packages:
 - completed:
-    hackage: unagi-chan-0.4.1.0@sha256:2fe7e9e4fd4bda0e42762824ecd9059f20069939774406ddd54f9989b47b3e1a,8653
-    pantry-tree:
-      size: 2286
-      sha256: 1ad7dc27bf42375ffede50d01d4e00189aa427c51ccd117049759c867401bc0c
-  original:
-    hackage: unagi-chan-0.4.1.0
-- completed:
     hackage: xturtle-0.2.0.0@sha256:1142ac15f60ffe3a088b6858f9259a1213bcf9c5b7da14fbc56bc41615b8846a,963
     pantry-tree:
       size: 728
@@ -25,16 +18,9 @@ packages:
       sha256: 8873c1b23d215000371c7db77097a644cd4f1e8bd36f0ed9883ffd28e29ca753
   original:
     hackage: yjsvg-0.2.0.1
-- completed:
-    hackage: HaXml-1.25.5@sha256:8f18057ffbf20e71af67a1338bde2f0c4f8e1e326230ada57cf7e967953a46c7,4380
-    pantry-tree:
-      size: 4076
-      sha256: 69caf451bb13aea41c010f5826f9e8c892a2abcda28ad890bbf6aa9951e5c193
-  original:
-    hackage: HaXml-1.25.5
 snapshots:
 - completed:
-    size: 494116
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/13/3.yaml
-    sha256: d9b0ca796c677a8fd429009d09afc6c9efe260b8789c264ce11641e3e727466f
-  original: lts-13.3
+    size: 567241
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/17/10.yaml
+    sha256: 321b3b9f0c7f76994b39e0dabafdc76478274b4ff74cc5e43d410897a335ad3b
+  original: lts-17.10
