@@ -54,6 +54,7 @@ executable hackerrank
                     , RecursiveStaircase
                     , SaveThePrisoner
                     , ServiceLane
+                    , SimpleLisp
                     , SparseArrays
                     , Spiral
                     , StringsMix
